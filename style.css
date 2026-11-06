@@ -585,3 +585,306 @@
     border-radius: 3px;
     transition: width 0.1s linear;
 }
+
+/* =========================================
+   SECCIÓN CONCIERTOS (FONDO Y CAJA GLASS)
+========================================= */
+.seccion-conciertos {
+    position: relative;
+    width: 100%;
+    padding: 80px 20px;
+    background: linear-gradient(rgba(10, 5, 20, 0.75), rgba(5, 5, 12, 0.9)), 
+                url('Imagen/Concierto.jpeg') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.caja-conciertos {
+    width: 100%;
+    max-width: 550px;
+    background: rgba(18, 10, 32, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(162, 0, 255, 0.25);
+    border-radius: 20px;
+    padding: 30px 40px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+}
+
+.fila-concierto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.fila-concierto .nombre-tour {
+    color: #e6d5ff;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.fila-concierto .anio-tour {
+    color: #bc6eff; /* Tono morado brillante para los años */
+    font-weight: 600;
+}
+
+/* =========================================
+   PIE DE PÁGINA (FOOTER)
+========================================= */
+.pie-pagina {
+    background-color: #030206;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 50px 5% 20px 5%;
+    color: #ffffff;
+}
+
+.footer-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-columna {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+}
+
+.footer-brand h3 {
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin: 0 0 5px 0;
+    color: #ffffff;
+}
+
+.footer-brand p {
+    font-size: 11px;
+    color: #8a8a9e;
+    letter-spacing: 1.5px;
+    margin: 0;
+}
+
+.titulo-footer-seccion {
+    color: #b560ff; /* Encabezados de Redes y Plataformas */
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.iconos-redes {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.iconos-redes a {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.iconos-redes a:hover {
+    border-color: #b560ff;
+    color: #b560ff;
+    box-shadow: 0 0 10px rgba(181, 96, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.footer-copyright {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-copyright p {
+    color: #555566;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    margin: 0;
+}
+
+/* =========================================
+   PÁGINA DE LOGIN (ESTILO FIGMA EXACTO)
+========================================= */
+.body-login {
+    margin: 0;
+    padding: 0;
+    background-color: #030206;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.contenedor-login-pantalla-completa {
+    width: 100%;
+    min-height: calc(100vh - 80px); /* Ajusta el espacio restando el header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    /* Fondo con la imagen de Aura y Void con capa oscura */
+    background: linear-gradient(rgba(5, 2, 12, 0.5), rgba(5, 2, 12, 0.7)), 
+                url('Imagen/voidyaura.jpg') center/cover no-repeat;
+}
+
+/* Tarjeta Glassmorphic central */
+.caja-login-glass {
+    width: 100%;
+    max-width: 420px;
+    background: rgba(18, 10, 30, 0.65) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(162, 0, 255, 0.3) !important;
+    border-radius: 20px !important;
+    padding: 40px 35px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(162, 0, 255, 0.15) !important;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Título magenta */
+.titulo-login {
+    color: #e056fd !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase;
+    margin: 0 0 30px 0 !important;
+}
+
+/* Campos del formulario */
+.campo-login {
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: left !important;
+    margin-bottom: 20px !important;
+}
+
+.campo-login label {
+    color: #bf7fff !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    letter-spacing: 1.5px !important;
+    text-transform: uppercase;
+    margin-bottom: 8px !important;
+}
+
+.campo-login input {
+    width: 100% !important;
+    background: rgba(10, 5, 22, 0.85) !important;
+    border: 1px solid rgba(162, 0, 255, 0.3) !important;
+    border-radius: 10px !important;
+    padding: 14px 16px !important;
+    color: #ffffff !important;
+    font-size: 12px !important;
+    outline: none !important;
+    box-sizing: border-box !important;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.campo-login input::placeholder {
+    color: #6a647d !important;
+    letter-spacing: 1px;
+}
+
+.campo-login input:focus {
+    border-color: #e056fd !important;
+    box-shadow: 0 0 12px rgba(224, 86, 253, 0.4) !important;
+}
+
+/* Botón principal Inicia Sesión (Degradado magenta) */
+.btn-login-submit {
+    width: 100% !important;
+    padding: 13px 20px !important;
+    margin-top: 10px !important;
+    margin-bottom: 14px !important;
+    background: linear-gradient(90deg, #8a2be2, #d946ef) !important;
+    border: none !important;
+    border-radius: 25px !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+    font-size: 12px !important;
+    letter-spacing: 1.5px !important;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(217, 70, 239, 0.4) !important;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-login-submit:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(217, 70, 239, 0.6) !important;
+}
+
+/* Botón de Google */
+.btn-login-google {
+    width: 100% !important;
+    padding: 11px 16px !important;
+    margin-bottom: 25px !important;
+    background: rgba(12, 6, 25, 0.9) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 25px !important;
+    color: #ffffff !important;
+    font-size: 10px !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.btn-login-google:hover {
+    background: rgba(25, 12, 45, 0.9) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Links del pie del formulario */
+.pie-login {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-size: 10px !important;
+    letter-spacing: 0.8px !important;
+}
+
+.link-olvido {
+    color: #8f8a9d !important;
+    text-decoration: none !important;
+    transition: color 0.3s;
+}
+
+.link-olvido:hover {
+    color: #ffffff !important;
+}
+
+.link-registro {
+    color: #e056fd !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    transition: color 0.3s;
+}
+
+.link-registro:hover {
+    color: #ffffff !important;
+}

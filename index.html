@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wiki Fandom - Chase Atlantic</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -19,7 +20,7 @@
                 <li><a href="#Members">Integrantes</a></li>
                 <li><a href="#Discos">Discografía</a></li>
                 <li><a href="#Concert">Conciertos</a></li>
-                <li><a href="#sesion">Login</a></li>
+                <li><a href="login.html">Login</a></li>
             </ul>
         </nav>
     </header>
@@ -282,46 +283,108 @@
 </section>
 
         <!-- Sección: Giras y Conciertos -->
-        <section id="Concert">
-            <h2>Giras y Conciertos</h2>
-            <img src="https://i.pinimg.com/736x/73/82/9d/73829d99dab891a362fbd91fc6d46a97.jpg" alt="Concierto de Chase Atlantic en Glasgow, Escocia" width="200" height="200">
+        <section id="Concert" class="seccion-conciertos">
+            <h2 class="titulo-seccion">CONCIERTOS</h2>
 
-            <ul>
-                <li>Chase Atlantic en Metro Lair (2014)</li>
-                <li>Gira Nostalgia (2015)</li>
-                <li>Paradise Tour (2016)</li>
-                <li>Chase Atlantic: The Tour (2017)</li>
-                <li>Gira Mundial 2018</li>
-                <li>Gira Phases (2019)</li>
-                <li>Beauty in Death Tour (2021)</li>
-                <li>Cold Nights Tour (2022)</li>
-                <li>Live in Brazil (2023)</li>
-                <li>Lost in Heaven Tour (2024–2025)</li>
-            </ul>
+            <!-- Caja Glassmorphic para la lista de conciertos -->
+            <div class="caja-neon caja-conciertos">
+                <div class="fila-concierto">
+                    <span class="nombre-tour">CHASE ATLANTIC EN METRO LAIR</span>
+                    <span class="anio-tour">(2014)</span>
+                </div>
+                <div class="fila-concierto">
+                    <span class="nombre-tour">GIRA NOSTALGIA</span>
+                    <span class="anio-tour">(2015)</span>
+                </div>
+                <div class="fila-concierto">
+                    <span class="nombre-tour">PARADISE TOUR</span>
+                    <span class="anio-tour">(2016)</span>
+                </div>
+                <div class="fila-concierto">
+                    <span class="nombre-tour">CHASE ATLANTIC: THE TOUR</span>
+                    <span class="anio-tour">(2017)</span>
+                </div>
+                <div class="fila-concierto">
+                    <span class="nombre-tour">GIRA MUNDIAL</span>
+                    <span class="anio-tour">(2018)</span>
+                </div>
+                <div class="fila-concierto">
+                    <span class="nombre-tour">GIRA PHASES</span>
+                    <span class="anio-tour">(2019)</span>
+                </div>
+                <div class="fila-concierto">
+                    <span class="nombre-tour">BEAUTY IN DEATH TOUR</span>
+                    <span class="anio-tour">(2021)</span>
+                </div>
+                <div class="fila-concierto">
+                    <span class="nombre-tour">COLD NIGHTS TOUR</span>
+                    <span class="anio-tour">(2022)</span>
+                </div>
+                <div class="fila-concierto">
+                    <span class="nombre-tour">LIVE IN BRAZIL</span>
+                    <span class="anio-tour">(2023)</span>
+                </div>
+                <div class="fila-concierto">
+                    <span class="nombre-tour">LOST IN HEAVEN TOUR</span>
+                    <span class="anio-tour">(2024–2025)</span>
+                </div>
+            </div>
         </section>
 
     </main>
 
-    <hr>
-
     <!-- Pie de Página -->
-    <footer>
-        <h3 id="link">Enlaces Oficiales y Redes Sociales</h3>
-        <nav aria-label="Enlaces a redes sociales">
-            <ul>
-                <li><a href="https://chaseatlantic.com/" target="_blank" rel="noopener">Sitio Web Oficial</a></li>
-                <li><a href="https://open.spotify.com/intl-es/artist/7cYEt1pqMgXJdq00hAwVpT" target="_blank" rel="noopener">Spotify</a></li>
-                <li><a href="https://www.youtube.com/@chaseatlantic" target="_blank" rel="noopener">YouTube</a></li>
-                <li><a href="https://music.youtube.com/@chaseatlantic" target="_blank" rel="noopener">YouTube Music</a></li>
-                <li><a href="https://www.instagram.com/chaseatlantic/" target="_blank" rel="noopener">Instagram</a></li>
-                <li><a href="https://www.tiktok.com/@chaseatlantic" target="_blank" rel="noopener">TikTok</a></li>
-                <li><a href="https://x.com/ChaseAtlantic" target="_blank" rel="noopener">X (Twitter)</a></li>
-                <li><a href="https://www.facebook.com/ChaseAtlantic/" target="_blank" rel="noopener">Facebook</a></li>
-            </ul>
-        </nav>
+    <footer class="pie-pagina">
+        <div class="footer-contenido">
+            
+            <!-- Columna 1: Marca / Logo -->
+            <div class="footer-columna footer-brand">
+                <h3>CHASE ATLANTIC</h3>
+                <p>FAN CLUB OFICIAL</p>
+            </div>
 
-        <p><a href="#home">Volver al inicio de la página</a></p>
+            <!-- Columna 2: Redes Sociales -->
+            <div class="footer-columna">
+                <h4 class="titulo-footer-seccion">REDES SOCIALES</h4>
+                <div class="iconos-redes">
+                    <a href="https://www.instagram.com/chaseatlantic/" target="_blank" rel="noopener" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/ChaseAtlantic/" target="_blank" rel="noopener" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@chaseatlantic" target="_blank" rel="noopener" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://x.com/ChaseAtlantic" target="_blank" rel="noopener" title="X (Twitter)">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Columna 3: Plataformas de Música -->
+            <div class="footer-columna">
+                <h4 class="titulo-footer-seccion">PLATAFORMAS</h4>
+                <div class="iconos-redes">
+                    <a href="https://open.spotify.com/intl-es/artist/7cYEt1pqMgXJdq00hAwVpT" target="_blank" rel="noopener" title="Spotify">
+                        <i class="fab fa-spotify"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@chaseatlantic" target="_blank" rel="noopener" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://music.youtube.com/@chaseatlantic" target="_blank" rel="noopener" title="YouTube Music">
+                        <i class="fas fa-music"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-copyright">
+            <p>&copy; 2026 GLORIMAR MALDONADO</p>
+        </div>
     </footer>
+
     <script src="script.js"></script>
 
 </body>
