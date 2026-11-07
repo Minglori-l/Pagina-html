@@ -47,7 +47,7 @@
   letter-spacing: 2px;
  }
 
- /*Alineacion en los enlaces del menú*/
+ /*menú*/
  nav ul{
   display: flex;
   gap: 30px;
@@ -78,8 +78,8 @@
     padding: 0 10%;
     
     /* --- EL EFECTO PARALLAX --- */
-    /* 1. Pon el nombre exacto de la imagen que acabas de guardar */
-    background-image: url('Imagen/fondo.avif'); 
+
+    background-image: url('Imagen/8k_stars_milky_way.jpg'); 
     
     /* 2. Congela el fondo (Lo que pide el profesor) */
     background-attachment: fixed; 
@@ -114,7 +114,7 @@
     letter-spacing: 1px;
 }
 
-/* Creamos la instrucción de movimiento */
+/*la instrucción de movimiento */
 @keyframes flotar {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-20px); } /* Sube 20 píxeles */
@@ -123,20 +123,25 @@
 
 /* Se lo aplicamos a tu imagen */
 .gatos-flotantes {
-    max-width: 550px; /* Ajusta este valor si los gatos se ven muy grandes o pequeños */
+    max-width: 600px;
     height: auto;
-    
-    /* Llamamos a la animación, dura 4 segundos y se repite infinitamente */
     animation: flotar 4s ease-in-out infinite;
     
     /* Un pequeño brillo alrededor de los gatos para resaltar el efecto 3D */
     filter: drop-shadow(0 0 15px rgba(106, 13, 173, 0.4));
 }
 
-/* =========================================
-   CONTENEDOR PRINCIPAL: DOS COLUMNAS
-========================================= */
+/* 1. FONDO A PANTALLA COMPLETA (Extendido de borde a borde) */
 .contenedor-carrera-sumario {
+    width: 100%;
+    padding: 60px 0;
+    box-sizing: border-box;
+    background: linear-gradient(rgba(5, 0, 15, 0.75), rgba(5, 0, 15, 0.85)), 
+                url('Imagen/Imagen4.png') center/cover no-repeat;
+}
+
+/* 2. ESTRUCTURA INTERNA (Mantiene Carrera al 65% y Sumario al 32% centrados a 1200px) */
+.contenido-carrera-flex {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -144,7 +149,7 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 0 20px;
     gap: 30px;
     box-sizing: border-box;
 }
@@ -153,7 +158,8 @@
     width: 65%;
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Separación entre las 3 cajas de carrera */
+    gap: 20px;
+    height: auto !important;
 }
 
 .seccion-sumario {
@@ -162,9 +168,7 @@
     flex-direction: column;
 }
 
-/* =========================================
-   ESTILO CAJAS NEÓN (CARRERA)
-========================================= */
+/* ESTILO CAJAS NEÓN (CARRERA)*/
 .caja-neon {
     background-color: rgba(15, 10, 25, 0.85); 
     border: 1px solid var(--neon-purple2); 
@@ -193,9 +197,6 @@
     margin-bottom: 15px;
 }
 
-/* =========================================
-   ESTILO COMPACTO PARA LA ÚLTIMA CAJA (HISTORIA)
-========================================= */
 .caja-historia .bloque-historia {
     margin-bottom: 15px; /* Separa el bloque de un año del siguiente */
 }
@@ -270,12 +271,12 @@
    SECCIÓN INTEGRANTES (DISEÑO ZIG-ZAG)
 ========================================= */
 .seccion-integrantes {
-    max-width: 1000px;
-    margin: 60px auto;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px; /* Separación vertical entre cada integrante */
+  width: 100%;
+    padding: 60px 0;
+    box-sizing: border-box;
+    background: linear-gradient(rgba(5, 0, 15, 0.75), rgba(5, 0, 15, 0.85)), 
+                url('Imagen/Imagen2.png') center/cover no-repeat;
+
 }
 
 .titulo-seccion {
@@ -287,51 +288,80 @@
     margin-bottom: 20px;
 }
 
+/* =========================================
+   SECCIÓN INTEGRANTES (ESTILO EXACTO FIGMA)
+========================================= */
+
+/* Fondo azul a pantalla completa */
+.seccion-integrantes {
+    width: 100%;
+    padding: 60px 0;
+    box-sizing: border-box;
+    background: url('Imagen/Imagen2.png') center/cover no-repeat;
+}
+
+/* Contenedor central (limita el ancho total como en Figma) */
+.contenido-integrantes {
+    width: 100%;
+    max-width: 880px; /* Ancho compacto de tu diseño en Figma */
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 35px; /* Separación vertical entre integrantes */
+}
+
 /* Contenedor principal de cada integrante */
 .tarjeta-integrante {
     display: flex;
-    align-items: center; /* Centra la imagen y el texto verticalmente */
-    justify-content: space-between;
-    gap: 40px;
+    align-items: center;
+    justify-content: center; /* Mantiene la foto y el texto agrupados en el centro */
+    gap: 25px; /* Distancia corta entre la foto y la caja azul */
+    width: 100%;
 }
 
-/* CLAVE: Esta clase invierte el orden (Texto a la izq, Imagen a la der) */
+/* CLAVE: Invierte el orden para el efecto zig-zag */
 .tarjeta-integrante.reversa {
     flex-direction: row-reverse;
 }
 
-/* Estilos de la imagen */
+/* Estilos del contenedor de la imagen */
 .contenedor-imagen {
-    width: 20%; /* La imagen ocupa el 30% del ancho */
+    width: 230px; /* Tamaño fijo exacto para que no se deforme */
     flex-shrink: 0;
 }
 
 .img-integrante {
     width: 100%;
+    height: 300px;
     border-radius: 15px;
     object-fit: cover;
-    box-shadow: 0 0 15px rgba(0, 180, 255, 0.2); /* Ligero resplandor azul en la imagen */
+    display: block;
+    box-shadow: 0 0 15px rgba(0, 180, 255, 0.2);
 }
 
 /* Estilos de la caja de texto */
 .caja-texto-azul {
-    width: 65%; /* El texto ocupa el 65% del ancho */
-    background-color: rgba(10, 25, 45, 0.6); /* Fondo azul oscuro translúcido */
-    border: 1px solid #1a3c63; /* Borde azul marino */
+    flex: 1; /* Ocupa el ancho proporcional restante al lado de la imagen */
+    max-width: 580px;
+    background-color: rgba(10, 25, 45, 0.75); /* Fondo azul oscuro translúcido */
+    border: 1px solid rgba(0, 180, 255, 0.35); /* Borde azul neón tenue */
     border-radius: 12px;
     padding: 25px 30px;
+    box-sizing: border-box;
 }
 
 .caja-texto-azul p {
-    color: #8a9bb0; /* Color grisáceo/azulado para el texto normal */
+    color: #8a9bb0; /* Color grisáceo/azulado */
     font-size: 13px;
-    line-height: 1.5;
+    line-height: 1.6;
     margin: 0;
 }
 
 /* Resaltado del nombre */
 .nombre-cian {
-    color: #00e5ff; /* Color cian brillante para el nombre */
+    color: #00e5ff; /* Color cian brillante */
     font-weight: bold;
     text-transform: uppercase;
 }
