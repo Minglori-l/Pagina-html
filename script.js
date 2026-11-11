@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // =========================================
+    // 1. CÓDIGO DE LA DISCOGRAFÍA Y CARRUSEL
+    // =========================================
     const albumes = document.querySelectorAll('.album-card');
     const seccionDiscos = document.getElementById('Discos');
     const btnPrev = document.getElementById('btn-prev');
@@ -54,19 +57,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Navegación con flechas
-    btnPrev.addEventListener('click', () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            actualizarCarrusel();
-        }
-    });
+    if (btnPrev && btnNext) {
+        btnPrev.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                actualizarCarrusel();
+            }
+        });
 
-    btnNext.addEventListener('click', () => {
-        if (currentIndex < albumes.length - 1) {
-            currentIndex++;
-            actualizarCarrusel();
-        }
-    });
+        btnNext.addEventListener('click', () => {
+            if (currentIndex < albumes.length - 1) {
+                currentIndex++;
+                actualizarCarrusel();
+            }
+        });
+    }
 
     // Clic directo en cualquier álbum del carrusel
     albumes.forEach((card, index) => {
@@ -77,33 +82,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Control de reproducción (Play / Pausa)
-    btnPlay.addEventListener('click', () => {
-        if (audio.paused) {
-            audio.play();
-            btnPlay.textContent = '❚❚';
-        } else {
-            audio.pause();
-            btnPlay.textContent = '▶';
-        }
-    });
+    if (btnPlay && audio) {
+        btnPlay.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                btnPlay.textContent = '❚❚';
+            } else {
+                audio.pause();
+                btnPlay.textContent = '▶';
+            }
+        });
 
-    // Actualización de la barra de progreso
-    audio.addEventListener('timeupdate', () => {
-        if (audio.duration) {
-            const porcentaje = (audio.currentTime / audio.duration) * 100;
-            progresoBarra.style.width = `${porcentaje}%`;
-        }
-    });
+        // Actualización de la barra de progreso
+        audio.addEventListener('timeupdate', () => {
+            if (audio.duration && progresoBarra) {
+                const porcentaje = (audio.currentTime / audio.duration) * 100;
+                progresoBarra.style.width = `${porcentaje}%`;
+            }
+        });
+    }
 
     // Click en la barra de progreso para saltar en la canción
-    progresoContenedor.addEventListener('click', (e) => {
-        const width = progresoContenedor.clientWidth;
-        const clickX = e.offsetX;
-        if (audio.duration) {
-            audio.currentTime = (clickX / width) * audio.duration;
-        }
-    });
+    if (progresoContenedor && audio) {
+        progresoContenedor.addEventListener('click', (e) => {
+            const width = progresoContenedor.clientWidth;
+            const clickX = e.offsetX;
+            if (audio.duration) {
+                audio.currentTime = (clickX / width) * audio.duration;
+            }
+        });
+    }
 
     // Inicializar el carrusel al cargar la página
-    actualizarCarrusel();
+    if (albumes.length > 0) {
+        actualizarCarrusel();
+    }
+
+    // =========================================
+    // 2. CÓDIGO DEL MENÚ HAMBURGUESA RESPONSIVE
+    // =========================================
+    const menuToggle = document.getElementById('mobile-menu');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Cierra el menú al hacer clic en cualquier enlace
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    }
 });

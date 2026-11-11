@@ -1,37 +1,78 @@
 :root {
   /* Paleta de Colores Base */
-    --fondo-oscuro: #000000;
-  --text-primary: #ffffff; /* Texto principal en blanco */
-  --text-secondary: #8a8a9e; /* Texto secundario grisáceo */
-  --text-sub: #A13CC3; /*Texto del login*/
+  --fondo-oscuro: #000000;
+  --text-primary: #ffffff;
+  --text-secondary: #8a8a9e;
+  --text-sub: #c980ff; /* Unificado con el color del sumario */
   
-  /* Colores de Acento (Neón)*/
-  --brillo-morado: rgba(157, 0, 255, 0.4); /*luz detrás de los personajes */
-  --neon-purple: #9d00ff; /* Morado brillante */
-  --neon-purple2: #9D4EDD; /*fondos en integrantes*/
-  --neon-blue: #0066ff; /* Azul brillante */
+  /* Colores de Acento (Neón) */
+  --brillo-morado: rgba(162, 0, 255, 0.4); 
+  --neon-purple: #9d00ff; 
+  --neon-purple2: #a200ff; /* Unificado con el color del sumario */
+  --neon-blue: #0066ff; 
   
   /* Colores para Paneles Translúcidos (Glassmorphism) */
-  --glass-bg: rgba(255, 255, 255, 0.04); /* Fondo semi-transparente */
-  --glass-border: rgba(255, 255, 255, 0.1); /* Borde sutil */
+  --glass-bg: rgba(255, 255, 255, 0.04); 
+  --glass-border: rgba(255, 255, 255, 0.1); 
 
-  /*colores del sumario*/
-  --neon-purple2: #a200ff;
-    --brillo-morado: rgba(162, 0, 255, 0.4);
-    --fondo-oscuro: #000000;
-    --text-primary: #ffffff;
-    --text-sub: #c980ff;
+  /* Variable de Altura para el Menú Fijo */
+  --header-height: 84px;
 }
- /*Configuracion de la base para toda la pagina*/
- body{
-  background-color: var(--fondo-oscuro);
-  color: var(--text-primary);
-  font-family: Arial, Helvetica, sans-serif; /*Cambio de tipo de letra*/
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; /*evita que la pagina se desborde*/
 
- }
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-height) + 16px);
+}
+
+body {
+    background-color: var(--fondo-oscuro);
+    color: var(--text-primary);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: var(--header-height) 0 0 0; /* Compensación del header fijo */
+    overflow-x: hidden;
+}
+
+section[id], h1[id], h2[id], h3[id] {
+    scroll-margin-top: calc(var(--header-height) + 16px);
+}
+
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    height: var(--header-height);
+    padding: 0 clamp(20px, 5vw, 50px);
+    box-sizing: border-box;
+    background: rgba(3, 2, 8, 0.78);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(162, 0, 255, 0.18);
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                background-color 0.3s ease,
+                box-shadow 0.3s ease;
+    will-change: transform;
+}
+
+header.header--hidden {
+    transform: translateY(-100%);
+}
+
+header.header--scrolled {
+    background: rgba(3, 2, 8, 0.94);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+}
+
+section[id], h1[id], h2[id], h3[id] {
+    scroll-margin-top: calc(var(--header-height) + 16px);
+}
 
  /*Alineacion del encabezado*/
  header{
@@ -81,7 +122,7 @@
 
     background-image: url('Imagen/8k_stars_milky_way.jpg'); 
     
-    /* 2. Congela el fondo (Lo que pide el profesor) */
+    /* 2. Congela el fondo */
     background-attachment: fixed; 
     
     /* 3. Ajusta la imagen para que cubra todo el espacio sin deformarse */
@@ -918,3 +959,195 @@
 .link-registro:hover {
     color: #ffffff !important;
 }
+
+/* Botón hamburguesa (oculto en pantallas grandes) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-primary);
+    border-radius: 2px;
+}
+
+/* =========================================
+   MEDIA QUERIES (DISEÑO RESPONSIVO - De grande a pequeño)
+========================================= */
+@media (max-width: 768px) {
+    /* 1. Muestra el botón de hamburguesa */
+    .menu-toggle {
+        display: flex; 
+    }
+
+    /* 2. Oculta el menú horizontal normal */
+    nav ul {
+        display: none; 
+    }
+    
+    /* 3. Ajustes generales para celular */
+    .pantalla-principal {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .contenido-carrera-flex {
+        flex-direction: column;
+    }
+
+    .seccion-carrera, .seccion-sumario {
+        width: 100%; /* Las cajas ahora ocupan todo el ancho en celular */
+    }
+}
+
+/* ==========================================================================
+   SECCIÓN RESPONSIVE (MEDIA QUERIES)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. ENFOQUE DESKTOP-FIRST (De Pantalla Grande a Pequeña)
+   Se activa cuando la pantalla es de 1024px o menos (Tablets y Celulares)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  /* Pantalla Principal */
+  .pantalla-principal {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    min-height: 100vh;
+    padding: calc(var(--header-height) + 40px) 20px 40px 20px;
+    gap: 30px;
+  }
+
+  .texto-bienvenida .titulo-grande {
+    font-size: 45px;
+  }
+
+  .gatos-flotantes {
+    max-width: 80%;
+  }
+
+  /* Sección Carrera y Sumario (Pasan de estar lado a lado a apilarse) */
+  .contenido-carrera-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .seccion-carrera,
+  .seccion-sumario {
+    width: 100%;
+  }
+
+  /* Sección Integrantes (Desactiva el zig-zag y pone las fotos arriba del texto) */
+  .tarjeta-integrante,
+  .tarjeta-integrante.reversa {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contenedor-imagen {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .caja-texto-azul {
+    width: 100%;
+  }
+
+  /* Discografía y Reproductor */
+  .panel-reproductor-inferior {
+    flex-direction: column;
+  }
+
+  .caja-info-disco,
+  .caja-reproductor-centro {
+    width: 100%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. ENFOQUE MOBILE-FIRST (De Pantalla Pequeña a Grande)
+   Se activa cuando la pantalla crece a 1200px o más (Monitores Grandes / 4K)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1200px) {
+  .texto-bienvenida .titulo-grande {
+    font-size: 75px;
+  }
+
+  .contenido-carrera-flex {
+    max-width: 1300px;
+  }
+
+  .contenido-integrantes {
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* 1. Muestra el botón hamburguesa */
+  .menu-toggle {
+    display: flex !important;
+  }
+
+  /* 2. Configura el contenedor desplegable del menú */
+  nav {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background: rgba(3, 2, 8, 0.96);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(162, 0, 255, 0.3);
+    
+    /* Oculto por defecto */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    z-index: 999;
+  }
+
+  /* 3. Muestra la lista y la ordena en vertical */
+  nav ul {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 0;
+    gap: 20px;
+  }
+
+  /* 4. Estado ACTIVO (Se activa al hacer clic con el JS) */
+  nav.active {
+    max-height: 400px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Ajustes responsivos adicionales */
+  .texto-bienvenida .titulo-grande {
+    font-size: 32px;
+  }
+
+  .caja-conciertos {
+    padding: 20px;
+  }
+
+  .fila-concierto {
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+  }
+}
+
